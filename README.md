@@ -1,22 +1,6 @@
 # Media Queries Cheatsheet
 Font sizes, breakpoints & real-world dimensions from sites like YouTube, Airbnb & Twitter
-
----
-
-## Syntax — Old vs New
-
-```css
-/* Old way — still works */
-@media only screen and (max-width: 768px) { }
-
-/* Modern way — cleaner, use this */
-@media (width <= 768px) { }
-@media (width >= 768px) { }
-@media (400px <= width <= 800px) { }
-```
-
----
-
+ 
 ## Breakpoints
 
 | Device | Width |
