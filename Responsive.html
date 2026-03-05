@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Queries Cheatsheet</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: #f0f2f5;
+        color: #1a1a1a;
+        padding: 40px 20px;
+      }
+
+      .page {
+        max-width: 860px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      /* Header */
+      .header {
+        background: #1a1a1a;
+        color: white;
+        border-radius: 14px;
+        padding: 32px 36px;
+      }
+      .header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .header p {
+        font-size: 14px;
+        color: #aaa;
+      }
+
+      /* Cards */
+      .card {
+        background: white;
+        border-radius: 14px;
+        padding: 28px 32px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+      }
+      .card h2 {
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: #555;
+        margin-bottom: 18px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #f0f2f5;
+      }
+
+      /* Two column grid */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      /* Tables */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      thead tr {
+        background: #f7f8fa;
+      }
+      th {
+        text-align: left;
+        padding: 10px 14px;
+        font-weight: 600;
+        color: #444;
+        border-bottom: 2px solid #e8edf2;
+      }
+      td {
+        padding: 10px 14px;
+        border-bottom: 1px solid #f0f2f5;
+        color: #333;
+        vertical-align: top;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* Code blocks */
+      pre {
+        background: #1a1a1a;
+        color: #e8e8e8;
+        border-radius: 10px;
+        padding: 18px 20px;
+        font-size: 13px;
+        line-height: 1.7;
+        overflow-x: auto;
+        margin-top: 6px;
+      }
+      code {
+        font-family: "Fira Code", "Courier New", monospace;
+      }
+      .comment {
+        color: #6b9e6b;
+      }
+      .keyword {
+        color: #79b8ff;
+      }
+      .value {
+        color: #f8c869;
+      }
+
+      /* Tag pills */
+      .pill {
+        display: inline-block;
+        background: #f0f2f5;
+        border-radius: 20px;
+        padding: 3px 12px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #555;
+        margin: 3px 3px 3px 0;
+      }
+      .pill-dark {
+        background: #1a1a1a;
+        color: white;
+      }
+
+      /* Rules list */
+      .rules {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .rule {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #333;
+      }
+      .rule-num {
+        min-width: 26px;
+        height: 26px;
+        background: #1a1a1a;
+        color: white;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1px;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        font-size: 13px;
+        color: #aaa;
+        padding-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- Header -->
+      <div class="header">
+        <h1>Media Queries Cheatsheet</h1>
+        <p>
+          Font sizes, breakpoints &amp; real-world dimensions from sites like
+          YouTube, Airbnb &amp; Twitter
+        </p>
+      </div>
+
+      <!-- Syntax -->
+      <div class="card">
+        <h2>Syntax — Old vs New</h2>
+        <pre><code><span class="comment">/* Old way — still works */</span>
+<span class="keyword">@media</span> only screen and (max-width: <span class="value">768px</span>) { }
+
+<span class="comment">/* Modern way — cleaner, use this */</span>
+<span class="keyword">@media</span> (width &lt;= <span class="value">768px</span>) { }
+<span class="keyword">@media</span> (width &gt;= <span class="value">768px</span>) { }
+<span class="keyword">@media</span> (<span class="value">400px</span> &lt;= width &lt;= <span class="value">800px</span>) { }</code></pre>
+      </div>
+
+      <!-- Breakpoints + Font Sizes side by side -->
+      <div class="grid-2">
+        <div class="card">
+          <h2>Breakpoints</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Device</th>
+                <th>Width</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Small Mobile (iPhone SE)</td>
+                <td><span class="pill">320px</span></td>
+              </tr>
+              <tr>
+                <td>Mobile</td>
+                <td><span class="pill">375 – 480px</span></td>
+              </tr>
+              <tr>
+                <td>Large Mobile</td>
+                <td><span class="pill">480 – 600px</span></td>
+              </tr>
+              <tr>
+                <td>Tablet</td>
+                <td><span class="pill">768px</span></td>
+              </tr>
+              <tr>
+                <td>Small Laptop</td>
+                <td><span class="pill">1024px</span></td>
+              </tr>
+              <tr>
+                <td>Laptop</td>
+                <td><span class="pill">1280px</span></td>
+              </tr>
+              <tr>
+                <td>Large Desktop</td>
+                <td><span class="pill">1440px+</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <pre
+            style="margin-top: 16px"
+          ><code><span class="comment">/* 3 you use 90% of the time */</span>
+<span class="keyword">@media</span> (max-width: <span class="value">480px</span>) { }  <span class="comment">/* mobile */</span>
+<span class="keyword">@media</span> (max-width: <span class="value">768px</span>) { }  <span class="comment">/* tablet */</span>
+<span class="keyword">@media</span> (max-width: <span class="value">1024px</span>) { } <span class="comment">/* laptop */</span></code></pre>
+        </div>
+
+        <div class="card">
+          <h2>Font Sizes</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Element</th>
+                <th>Desktop</th>
+                <th>Tablet</th>
+                <th>Mobile</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>H1 Hero</td>
+                <td>48–64px</td>
+                <td>36–40px</td>
+                <td>28–32px</td>
+              </tr>
+              <tr>
+                <td>H2 Section</td>
+                <td>32–40px</td>
+                <td>26–32px</td>
+                <td>22–26px</td>
+              </tr>
+              <tr>
+                <td>H3 Card</td>
+                <td>22–28px</td>
+                <td>20–24px</td>
+                <td>18–20px</td>
+              </tr>
+              <tr>
+                <td>Paragraph</td>
+                <td>16–18px</td>
+                <td>15–16px</td>
+                <td>14–15px</td>
+              </tr>
+              <tr>
+                <td>Caption</td>
+                <td>13–14px</td>
+                <td>13–14px</td>
+                <td>12–13px</td>
+              </tr>
+              <tr>
+                <td>Button</td>
+                <td>15–16px</td>
+                <td>14–15px</td>
+                <td>14px</td>
+              </tr>
+              <tr>
+                <td>Nav links</td>
+                <td>15–16px</td>
+                <td>14px</td>
+                <td>hamburger</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Padding & Container -->
+      <div class="grid-2">
+        <div class="card">
+          <h2>Padding &amp; Spacing</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Screen</th>
+                <th>Container Padding</th>
+                <th>Gap</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Desktop</td>
+                <td>40px – 80px</td>
+                <td>24px – 32px</td>
+              </tr>
+              <tr>
+                <td>Tablet</td>
+                <td>24px – 40px</td>
+                <td>16px – 24px</td>
+              </tr>
+              <tr>
+                <td>Mobile</td>
+                <td>16px – 20px</td>
+                <td>12px – 16px</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>Container Max-Widths</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Website</th>
+                <th>Max Width</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Twitter (feed)</td>
+                <td>600px</td>
+              </tr>
+              <tr>
+                <td>Most blogs</td>
+                <td>680 – 800px</td>
+              </tr>
+              <tr>
+                <td>Landing pages</td>
+                <td>1100 – 1200px</td>
+              </tr>
+              <tr>
+                <td>YouTube</td>
+                <td>1280px</td>
+              </tr>
+              <tr>
+                <td>Airbnb</td>
+                <td>1760px</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Real website reference -->
+      <div class="card">
+        <h2>Real Website Font References</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Site</th>
+              <th>Element</th>
+              <th>Size</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>YouTube</td>
+              <td>H1</td>
+              <td>24px → 20px mobile</td>
+              <td>Body stays 14px across all screens</td>
+            </tr>
+            <tr>
+              <td>Twitter / X</td>
+              <td>Tweets</td>
+              <td>15px everywhere</td>
+              <td>Only layout changes, font barely moves</td>
+            </tr>
+            <tr>
+              <td>Airbnb</td>
+              <td>Hero H1</td>
+              <td>58px → 32px mobile</td>
+              <td>Card titles stay 16px</td>
+            </tr>
+            <tr>
+              <td>Amazon</td>
+              <td>Product title</td>
+              <td>17 – 21px</td>
+              <td>Almost nothing changes on font, only layout</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Layout pattern -->
+      <div class="card">
+        <h2>Most Common Layout Pattern</h2>
+        <pre><code><span class="comment">/* Desktop: 3 cols → Tablet: 2 cols → Mobile: 1 col */</span>
+.card { width: <span class="value">30%</span>; }
+
+<span class="keyword">@media</span> (max-width: <span class="value">768px</span>) {
+  .card { width: <span class="value">48%</span>; }
+}
+
+<span class="keyword">@media</span> (max-width: <span class="value">480px</span>) {
+  .card { width: <span class="value">100%</span>; }
+}</code></pre>
+      </div>
+
+      <!-- Golden Rules -->
+      <div class="card">
+        <h2>Golden Rules</h2>
+        <div class="rules">
+          <div class="rule">
+            <div class="rule-num">1</div>
+            <span
+              >Font size <strong>never goes below 14px</strong> — too hard to
+              read on mobile</span
+            >
+          </div>
+          <div class="rule">
+            <div class="rule-num">2</div>
+            <span
+              ><strong>Paragraph text barely changes</strong> — 16px desktop,
+              15px mobile at most</span
+            >
+          </div>
+          <div class="rule">
+            <div class="rule-num">3</div>
+            <span
+              ><strong>Only headings shrink a lot</strong> — H1 can go from 64px
+              down to 28px</span
+            >
+          </div>
+          <div class="rule">
+            <div class="rule-num">4</div>
+            <span
+              ><strong>Padding shrinks more than font</strong> — mobile feels
+              tight because of reduced padding, not smaller text</span
+            >
+          </div>
+          <div class="rule">
+            <div class="rule-num">5</div>
+            <span
+              ><strong>Line height</strong> — always 1.5 to 1.7 for paragraphs
+              on all screens</span
+            >
+          </div>
+          <div class="rule">
+            <div class="rule-num">6</div>
+            <span
+              ><strong>Touch targets</strong> — buttons minimum 44px height on
+              mobile so fingers can tap easily</span
+            >
+          </div>
+          <div class="rule">
+            <div class="rule-num">7</div>
+            <span
+              ><strong>Let content decide breakpoints</strong> — resize your
+              browser until something looks broken, then add a breakpoint
+              there</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Common mistake -->
+      <div class="card">
+        <h2>Common Mistake</h2>
+        <pre><code><span class="comment">/* WRONG — missing space before ( */</span>
+<span class="keyword">@media</span> only screen and(max-width: <span class="value">600px</span>) { }
+
+<span class="comment">/* CORRECT */</span>
+<span class="keyword">@media</span> (max-width: <span class="value">600px</span>) { }</code></pre>
+      </div>
+
+      <div class="footer">
+        Media Queries Cheatsheet — save this file and open in any browser
+      </div>
+    </div>
+  </body>
+</html>
