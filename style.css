@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: #f0f2f5;
+  color: #1a1a1a;
+  padding: 40px 20px;
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header */
+.header {
+  background: #1a1a1a;
+  color: white;
+  border-radius: 14px;
+  padding: 32px 36px;
+}
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.header p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 28px 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+.card h2 {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #555;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f2f5;
+}
+
+/* Two column grid */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+thead tr {
+  background: #f7f8fa;
+}
+th {
+  text-align: left;
+  padding: 10px 14px;
+  font-weight: 600;
+  color: #444;
+  border-bottom: 2px solid #e8edf2;
+}
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #f0f2f5;
+  color: #333;
+  vertical-align: top;
+}
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Code blocks */
+pre {
+  background: #1a1a1a;
+  color: #e8e8e8;
+  border-radius: 10px;
+  padding: 18px 20px;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-x: auto;
+  margin-top: 6px;
+}
+code {
+  font-family: "Fira Code", "Courier New", monospace;
+}
+.comment {
+  color: #6b9e6b;
+}
+.keyword {
+  color: #79b8ff;
+}
+.value {
+  color: #f8c869;
+}
+
+/* Tag pills */
+.pill {
+  display: inline-block;
+  background: #f0f2f5;
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+  margin: 3px 3px 3px 0;
+}
+.pill-dark {
+  background: #1a1a1a;
+  color: white;
+}
+
+/* Rules list */
+.rules {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rule {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+.rule-num {
+  min-width: 26px;
+  height: 26px;
+  background: #1a1a1a;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+  padding-bottom: 10px;
+}
