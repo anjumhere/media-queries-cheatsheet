@@ -1,8 +1,11 @@
 # Media Queries Cheatsheet
 Font sizes, breakpoints & real-world dimensions from sites like YouTube, Airbnb & Twitter
- 
-## Breakpoints
 
+🔗 **Live Preview:** https://anjumhere.github.io/media-queries-cheatsheet/
+
+---
+
+## Breakpoints
 | Device | Width |
 |---|---|
 | Small Mobile (iPhone SE) | 320px |
@@ -23,7 +26,6 @@ Font sizes, breakpoints & real-world dimensions from sites like YouTube, Airbnb 
 ---
 
 ## Font Sizes
-
 | Element | Desktop | Tablet | Mobile |
 |---|---|---|---|
 | H1 Hero | 48–64px | 36–40px | 28–32px |
@@ -37,7 +39,6 @@ Font sizes, breakpoints & real-world dimensions from sites like YouTube, Airbnb 
 ---
 
 ## Padding & Spacing
-
 | Screen | Container Padding | Gap |
 |---|---|---|
 | Desktop | 40px – 80px | 24px – 32px |
@@ -47,7 +48,6 @@ Font sizes, breakpoints & real-world dimensions from sites like YouTube, Airbnb 
 ---
 
 ## Container Max-Widths
-
 | Website | Max Width |
 |---|---|
 | Twitter (feed) | 600px |
@@ -59,7 +59,6 @@ Font sizes, breakpoints & real-world dimensions from sites like YouTube, Airbnb 
 ---
 
 ## Real Website Font References
-
 | Site | Element | Size | Note |
 |---|---|---|---|
 | YouTube | H1 | 24px → 20px mobile | Body stays 14px across all screens |
@@ -70,7 +69,6 @@ Font sizes, breakpoints & real-world dimensions from sites like YouTube, Airbnb 
 ---
 
 ## Most Common Layout Pattern
-
 ```css
 /* Desktop: 3 cols → Tablet: 2 cols → Mobile: 1 col */
 .card { width: 30%; }
@@ -87,7 +85,6 @@ Font sizes, breakpoints & real-world dimensions from sites like YouTube, Airbnb 
 ---
 
 ## Golden Rules
-
 1. Font size **never goes below 14px** — too hard to read on mobile
 2. **Paragraph text barely changes** — 16px desktop, 15px mobile at most
 3. **Only headings shrink a lot** — H1 can go from 64px down to 28px
@@ -99,7 +96,6 @@ Font sizes, breakpoints & real-world dimensions from sites like YouTube, Airbnb 
 ---
 
 ## Common Mistake
-
 ```css
 /* WRONG — missing space before ( */
 @media only screen and(max-width: 600px) { }
